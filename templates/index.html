@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Security Scanner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Web Application Security Scanner</h1>
+        <span style="color:aqua;" >Python Based</span>
+    </header>
+    <div class="container">
+        <form action="/scan" method="post">
+            <label for="url">Enter URL to Scan Below Critiria:</label><br>
+            <input type="text" id="url" name="url" required><br>
+            <button type="submit">Scan</button>
+        </form>
+        <div>
+            <ul>
+                <li>SQL Injection Test</li>
+                <li>Cross-Site Scription(XSS) Test</li>
+                <li>Cross-Site Request Forgery (CSRF) Check</li>
+                <li>Open Redirect Test</li>
+                <li>Security Headers Check</li>
+                <li>Directory Transversal Test</li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer">
+        Made with ❤️ by
+        <a href="https://github.com/techabbayi" target="_blank" >techabbayi
+        </a>
+    </div>
+</body>
+</html>

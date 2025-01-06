@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scan Results</title>
+    <link rel="stylesheet" href="results.css">
+</head>
+<body>
+    <header>
+        <h1>Scan Results</h1>
+    </header>
+    <div class="testcases">
+        This Results Includes these Test's:
+        <ul>
+            <li>SQL Injection Test</li>
+            <li>Cross-Site Scription(XSS) Test</li>
+            <li>Cross-Site Request Forgery (CSRF) Check</li>
+            <li>Open Redirect Test</li>
+            <li>Security Headers Check</li>
+            <li>Directory Transversal Test</li>
+        </ul>
+    </div>
+    <div class="container results">
+        {% if results %}
+            <ul>
+            {% for result in results %}
+                <li>
+                    <strong>{{ result['vulnerability'] }}</strong> detected at {{ result['url'] }}<br>
+                    {% if result.get('headers') %}
+                        Missing headers: {{ result['headers'] | join(', ') }}<br>
+                    {% endif %}
+                    <em>Solution:</em> {{ result['solution'] }}
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No vulnerabilities found!</p>
+        {% endif %}
+        <a href="/">Scan another URL</a>
+    </div>
+    <div id="footer">
+        Made with ❤️ by
+        <a href="https://github.com/techabbayi" target="_blank" >techabbayi
+        </a>
+    </div>
+</body>
+</html>
